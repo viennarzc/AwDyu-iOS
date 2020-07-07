@@ -17,6 +17,10 @@ class MasterViewController: UITableViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
+    
+    tableView.register(TrackTableViewCell.nib,
+                       forCellReuseIdentifier: TrackTableViewCell.reuseIdentifierString)
+    
     if let split = splitViewController {
       let controllers = split.viewControllers
       detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? DetailViewController
@@ -50,13 +54,12 @@ class MasterViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return objects.count
+    return 5
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    let object = objects[indexPath.row] as! NSDate
-    cell.textLabel!.text = object.description
+    let cell: TrackTableViewCell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.reuseIdentifierString, for: indexPath) as! TrackTableViewCell
+    
     return cell
   }
 
