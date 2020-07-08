@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		143D29481F5B78BF0FEC0372 /* Pods_AwDyu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C1FCCD8FE6C68C2B30D1FCE /* Pods_AwDyu.framework */; };
 		8622E72224B541B50044FC1D /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E72124B541B50044FC1D /* UITableViewCellExtensions.swift */; };
 		8622E72724B5443D0044FC1D /* MasterTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E72624B5443D0044FC1D /* MasterTableViewModel.swift */; };
 		8622E72924B544C20044FC1D /* TrackTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E72824B544C20044FC1D /* TrackTableCellViewModel.swift */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		215054766BE1FA74C590A075 /* Pods-AwDyu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwDyu.debug.xcconfig"; path = "Target Support Files/Pods-AwDyu/Pods-AwDyu.debug.xcconfig"; sourceTree = "<group>"; };
+		6C1FCCD8FE6C68C2B30D1FCE /* Pods_AwDyu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwDyu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8622E72124B541B50044FC1D /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		8622E72624B5443D0044FC1D /* MasterTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewModel.swift; sourceTree = "<group>"; };
 		8622E72824B544C20044FC1D /* TrackTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableCellViewModel.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		86A19FF024B4A91400032CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86A19FF624B4AC4D00032CEE /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		86A19FF724B4AC4D00032CEE /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
+		88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwDyu.release.xcconfig"; path = "Target Support Files/Pods-AwDyu/Pods-AwDyu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,12 +53,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				143D29481F5B78BF0FEC0372 /* Pods_AwDyu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41D170337B75C5E5FB998D43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				215054766BE1FA74C590A075 /* Pods-AwDyu.debug.xcconfig */,
+				88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8622E72024B541A10044FC1D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +118,8 @@
 			children = (
 				86A19FDF24B4A91200032CEE /* AwDyu */,
 				86A19FDE24B4A91200032CEE /* Products */,
+				41D170337B75C5E5FB998D43 /* Pods */,
+				CC438C3D00905DA5458E4A42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +167,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CC438C3D00905DA5458E4A42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C1FCCD8FE6C68C2B30D1FCE /* Pods_AwDyu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,6 +182,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86A19FF324B4A91400032CEE /* Build configuration list for PBXNativeTarget "AwDyu" */;
 			buildPhases = (
+				874F10BA0A7E756FF245AE7F /* [CP] Check Pods Manifest.lock */,
 				86A19FD924B4A91200032CEE /* Sources */,
 				86A19FDA24B4A91200032CEE /* Frameworks */,
 				86A19FDB24B4A91200032CEE /* Resources */,
@@ -216,6 +242,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		874F10BA0A7E756FF245AE7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AwDyu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		86A19FD924B4A91200032CEE /* Sources */ = {
@@ -374,6 +425,7 @@
 		};
 		86A19FF424B4A91400032CEE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 215054766BE1FA74C590A075 /* Pods-AwDyu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -393,6 +445,7 @@
 		};
 		86A19FF524B4A91400032CEE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
