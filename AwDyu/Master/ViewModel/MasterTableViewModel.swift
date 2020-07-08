@@ -19,6 +19,7 @@ struct MasterTableViewModel: TrackList {
   init(tracks: Tracks) {
     self.trackItems = tracks.results.map {
       TrackTableCellViewModel(model: $0) }
+    
   }
   
 }

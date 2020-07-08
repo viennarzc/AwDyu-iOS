@@ -10,5 +10,7 @@ import Foundation
 
 protocol Displayable {
   var priceText: String { get }
+  //track name
+  var name: String { get }
   
 }

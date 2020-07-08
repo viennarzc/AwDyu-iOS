@@ -14,11 +14,15 @@ struct TrackTableCellViewModel {
   let genre: String
   let trackName: String
   
+  private(set) var model: Track
+  
   init(model: Track) {
     self.priceText = model.priceText
-    self.artworkUrl = model.artworkUrl60
-    self.genre = model.primaryGenreName
+    self.artworkUrl = model.artworkUrl60 ?? ""
+    self.genre = model.primaryGenreName ?? ""
     self.trackName = model.name
+    
+    self.model = model
   }
 }
 
