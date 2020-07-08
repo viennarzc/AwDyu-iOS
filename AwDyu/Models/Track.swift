@@ -10,32 +10,41 @@ import Foundation
 
 /// Individual Track Item details
 struct Track: Decodable {
-  var id: Int
-  var name: String
-  var artworkUrl30: String
-  var artworkUrl60: String
-  var artworkUrl100: String
-  var trackPrice: Float
-  var primaryGenreName: String
-}
+  let trackId: Int?
+  private let trackName: String?
+  var artworkUrl30: String?
+  var artworkUrl60: String?
+  var artworkUrl100: String?
+  var trackPrice: Double?
+  var primaryGenreName: String?
 
-extension Track: Displayable {
-  var priceText: String {
-    String(trackPrice)
-  }
-  
-  
-}
-
-extension Track {
   enum CodingKeys: String, CodingKey {
-    case id = "trackId"
-    case name = "trackName"
+    case trackName
+    case trackId
     case artworkUrl30
     case artworkUrl60
     case artworkUrl100
     case trackPrice
     case primaryGenreName
   }
+}
+
+extension Track: Displayable {
+  var priceText: String {
+    guard let price = trackPrice else {
+      return "0.00"
+    }
+
+    return String(price)
+  }
+  
+  var name: String {
+    guard let name = trackName else {
+      return "Untitled Track"
+    }
+    
+    return name
+  }
+
 
 }
