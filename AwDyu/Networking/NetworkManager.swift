@@ -13,6 +13,8 @@ import Alamofire
 class NetworkManager {
   public static let shared = NetworkManager()
 
+  /// Fetch Customize search from itunes
+  /// - Parameter completion: completes with Tracks ( result ) and AFError
   func fetchList(completion: @escaping (Tracks?, AFError?) -> Void) {
     let urlString = "https://itunes.apple.com/search?term=star&amp;country=au&amp;media=movie&amp;all"
     

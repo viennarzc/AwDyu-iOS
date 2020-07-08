@@ -81,6 +81,12 @@ class MasterViewController: UITableViewController {
       cell.trackNameLabel.text = vm.trackItems[indexPath.row].trackName
       cell.priceLabel.text = vm.trackItems[indexPath.row].priceText
       cell.genreLabel.text = vm.trackItems[indexPath.row].genre
+      
+//      let url = URL(fileURLWithPath: vm.trackItems[indexPath.row].artworkUrl)
+      if let url = URL(string: vm.trackItems[indexPath.row].artworkUrl) {
+        cell.albumArtUrl = url
+      }
+      
     }
 
     return cell
