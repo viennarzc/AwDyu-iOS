@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -66,7 +66,6 @@
 				215054766BE1FA74C590A075 /* Pods-AwDyu.debug.xcconfig */,
 				88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -134,11 +133,11 @@
 		86A19FDF24B4A91200032CEE /* AwDyu */ = {
 			isa = PBXGroup;
 			children = (
+				86A19FE024B4A91200032CEE /* AppDelegate.swift */,
+				86A19FE224B4A91200032CEE /* SceneDelegate.swift */,
 				8622E72B24B549780044FC1D /* Protocols */,
 				8622E72A24B549720044FC1D /* Models */,
 				8622E72024B541A10044FC1D /* Extensions */,
-				86A19FE024B4A91200032CEE /* AppDelegate.swift */,
-				86A19FE224B4A91200032CEE /* SceneDelegate.swift */,
 				86A19FFA24B4AC5900032CEE /* Master */,
 				86A19FE624B4A91200032CEE /* DetailViewController.swift */,
 				86A19FE824B4A91200032CEE /* Main.storyboard */,
@@ -186,6 +185,7 @@
 				86A19FD924B4A91200032CEE /* Sources */,
 				86A19FDA24B4A91200032CEE /* Frameworks */,
 				86A19FDB24B4A91200032CEE /* Resources */,
+				C0B3843FD860BA5245C24915 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +264,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0B3843FD860BA5245C24915 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AwDyu/Pods-AwDyu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AwDyu/Pods-AwDyu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AwDyu/Pods-AwDyu-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

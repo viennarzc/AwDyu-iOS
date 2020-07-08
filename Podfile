@@ -6,5 +6,6 @@ target 'AwDyu' do
   use_frameworks!
 
   # Pods for AwDyu
+  pod 'Alamofire', '~> 5.2'
 
 end
