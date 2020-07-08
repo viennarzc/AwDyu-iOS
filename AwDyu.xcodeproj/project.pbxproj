@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8622E72224B541B50044FC1D /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E72124B541B50044FC1D /* UITableViewCellExtensions.swift */; };
+		8622E72724B5443D0044FC1D /* MasterTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E72624B5443D0044FC1D /* MasterTableViewModel.swift */; };
+		8622E72924B544C20044FC1D /* TrackTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E72824B544C20044FC1D /* TrackTableCellViewModel.swift */; };
+		8622E72D24B549940044FC1D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E72C24B549940044FC1D /* Track.swift */; };
+		8622E72F24B549AA0044FC1D /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E72E24B549AA0044FC1D /* Tracks.swift */; };
+		8622E73124B549DC0044FC1D /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8622E73024B549DC0044FC1D /* Displayable.swift */; };
 		86A19FE124B4A91200032CEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A19FE024B4A91200032CEE /* AppDelegate.swift */; };
 		86A19FE324B4A91200032CEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A19FE224B4A91200032CEE /* SceneDelegate.swift */; };
 		86A19FE524B4A91200032CEE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A19FE424B4A91200032CEE /* MasterViewController.swift */; };
@@ -21,6 +26,11 @@
 
 /* Begin PBXFileReference section */
 		8622E72124B541B50044FC1D /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
+		8622E72624B5443D0044FC1D /* MasterTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewModel.swift; sourceTree = "<group>"; };
+		8622E72824B544C20044FC1D /* TrackTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableCellViewModel.swift; sourceTree = "<group>"; };
+		8622E72C24B549940044FC1D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		8622E72E24B549AA0044FC1D /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
+		8622E73024B549DC0044FC1D /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		86A19FDD24B4A91200032CEE /* AwDyu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwDyu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A19FE024B4A91200032CEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86A19FE224B4A91200032CEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +63,41 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8622E72424B544120044FC1D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86A19FE424B4A91200032CEE /* MasterViewController.swift */,
+				86A19FFB24B4AC7B00032CEE /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8622E72524B5441D0044FC1D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8622E72624B5443D0044FC1D /* MasterTableViewModel.swift */,
+				8622E72824B544C20044FC1D /* TrackTableCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8622E72A24B549720044FC1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8622E72C24B549940044FC1D /* Track.swift */,
+				8622E72E24B549AA0044FC1D /* Tracks.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8622E72B24B549780044FC1D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8622E73024B549DC0044FC1D /* Displayable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		86A19FD424B4A91200032CEE = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +117,8 @@
 		86A19FDF24B4A91200032CEE /* AwDyu */ = {
 			isa = PBXGroup;
 			children = (
+				8622E72B24B549780044FC1D /* Protocols */,
+				8622E72A24B549720044FC1D /* Models */,
 				8622E72024B541A10044FC1D /* Extensions */,
 				86A19FE024B4A91200032CEE /* AppDelegate.swift */,
 				86A19FE224B4A91200032CEE /* SceneDelegate.swift */,
@@ -88,8 +135,8 @@
 		86A19FFA24B4AC5900032CEE /* Master */ = {
 			isa = PBXGroup;
 			children = (
-				86A19FE424B4A91200032CEE /* MasterViewController.swift */,
-				86A19FFB24B4AC7B00032CEE /* Cell */,
+				8622E72524B5441D0044FC1D /* ViewModel */,
+				8622E72424B544120044FC1D /* View */,
 			);
 			path = Master;
 			sourceTree = "<group>";
@@ -176,10 +223,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				86A19FF824B4AC4D00032CEE /* TrackTableViewCell.swift in Sources */,
+				8622E72F24B549AA0044FC1D /* Tracks.swift in Sources */,
+				8622E72924B544C20044FC1D /* TrackTableCellViewModel.swift in Sources */,
 				86A19FE124B4A91200032CEE /* AppDelegate.swift in Sources */,
 				86A19FE324B4A91200032CEE /* SceneDelegate.swift in Sources */,
+				8622E72724B5443D0044FC1D /* MasterTableViewModel.swift in Sources */,
+				8622E72D24B549940044FC1D /* Track.swift in Sources */,
 				86A19FE524B4A91200032CEE /* MasterViewController.swift in Sources */,
 				86A19FE724B4A91200032CEE /* DetailViewController.swift in Sources */,
+				8622E73124B549DC0044FC1D /* Displayable.swift in Sources */,
 				8622E72224B541B50044FC1D /* UITableViewCellExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
