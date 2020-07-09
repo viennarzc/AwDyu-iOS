@@ -34,8 +34,9 @@ class TrackTableViewCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
 
-    //we set to nil to avoid images being reused in other cells
-    artworkImageView.image = nil
+    //we set to default to avoid images being reused in other cells
+    artworkImageView.image = UIImage(systemName: "music.note")
+    artworkImageView.contentMode = .center
   }
 
   //MARK: - Methods
