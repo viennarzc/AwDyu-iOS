@@ -17,7 +17,7 @@ struct TrackTableCellViewModel {
   private(set) var model: Track
   
   init(model: Track) {
-    self.priceText = model.priceText
+    self.priceText = model.priceTextWithCurrency ?? model.priceText
     self.artworkUrl = model.artworkUrl60 ?? ""
     self.genre = model.primaryGenreName ?? ""
     self.trackName = model.name

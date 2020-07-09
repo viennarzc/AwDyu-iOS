@@ -99,13 +99,13 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No Track Description" translatesAutoresizingMaskIntoConstraints="NO" id="e4E-Hl-uIC">
-                                <rect key="frame" x="35" y="233" width="344" height="509"/>
+                                <rect key="frame" x="30" y="233" width="354" height="524"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkO-Og-cYx">
-                                <rect key="frame" x="15" y="772" width="384" height="60"/>
+                                <rect key="frame" x="30" y="787" width="354" height="60"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="vXG-9V-0Ii"/>
@@ -130,18 +130,19 @@
                             <constraint firstItem="3YD-Iw-j0A" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="30" id="1Hg-O8-d5l"/>
                             <constraint firstItem="e4E-Hl-uIC" firstAttribute="top" secondItem="3YD-Iw-j0A" secondAttribute="bottom" constant="15" id="8mt-vc-cDB"/>
                             <constraint firstItem="3BU-bc-Wvm" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="96f-Tt-qdU"/>
+                            <constraint firstItem="e4E-Hl-uIC" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="30" id="9bv-9p-sK5"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="e4E-Hl-uIC" secondAttribute="trailing" constant="30" id="JAh-a0-yU7"/>
                             <constraint firstItem="WkO-Og-cYx" firstAttribute="top" secondItem="e4E-Hl-uIC" secondAttribute="bottom" constant="30" id="N2s-1f-oed"/>
                             <constraint firstItem="3BU-bc-Wvm" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="WPR-aA-oVH"/>
                             <constraint firstAttribute="bottom" secondItem="i7U-sr-mbC" secondAttribute="bottom" id="aH2-mq-gOq"/>
                             <constraint firstItem="i7U-sr-mbC" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="cDq-uH-RDB"/>
                             <constraint firstAttribute="trailing" secondItem="3BU-bc-Wvm" secondAttribute="trailing" id="fIj-fD-kcY"/>
                             <constraint firstItem="i7U-sr-mbC" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="lc3-7O-1ob"/>
-                            <constraint firstItem="e4E-Hl-uIC" firstAttribute="centerX" secondItem="WkO-Og-cYx" secondAttribute="centerX" id="mUy-9j-O2h"/>
+                            <constraint firstItem="e4E-Hl-uIC" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="mUy-9j-O2h"/>
                             <constraint firstAttribute="bottom" secondItem="3BU-bc-Wvm" secondAttribute="bottom" id="oqd-1v-hEc"/>
-                            <constraint firstItem="e4E-Hl-uIC" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="15" id="pFG-8D-3NM"/>
-                            <constraint firstItem="WkO-Og-cYx" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="15" id="qPd-8S-N3c"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="WkO-Og-cYx" secondAttribute="bottom" constant="30" id="tQ6-xe-czB"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="WkO-Og-cYx" secondAttribute="trailing" constant="15" id="unA-D4-FpO"/>
+                            <constraint firstItem="WkO-Og-cYx" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="30" id="qPd-8S-N3c"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="WkO-Og-cYx" secondAttribute="bottom" constant="15" id="tQ6-xe-czB"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="WkO-Og-cYx" secondAttribute="trailing" constant="30" id="unA-D4-FpO"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="3YD-Iw-j0A" secondAttribute="trailing" constant="15" id="vBF-xc-ANb"/>
                             <constraint firstItem="3YD-Iw-j0A" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="30" id="wRi-AG-ljZ"/>
                         </constraints>
@@ -244,7 +245,7 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Track List" id="Zdf-7t-Un8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,7 +269,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="ZIs-w2-WPU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="music.note" catalog="system" width="97" height="128"/>

@@ -27,6 +27,8 @@
 		86A19FEF24B4A91400032CEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A19FED24B4A91400032CEE /* LaunchScreen.storyboard */; };
 		86A19FF824B4AC4D00032CEE /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A19FF624B4AC4D00032CEE /* TrackTableViewCell.swift */; };
 		86A19FF924B4AC4D00032CEE /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A19FF724B4AC4D00032CEE /* TrackTableViewCell.xib */; };
+		86C1571824B72AE30043BBCF /* TrackDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1571724B72AE30043BBCF /* TrackDetail.swift */; };
+		86C1571A24B72E260043BBCF /* Purchaseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1571924B72E260043BBCF /* Purchaseable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		86A19FF024B4A91400032CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86A19FF624B4AC4D00032CEE /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		86A19FF724B4AC4D00032CEE /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
+		86C1571724B72AE30043BBCF /* TrackDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetail.swift; sourceTree = "<group>"; };
+		86C1571924B72E260043BBCF /* Purchaseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchaseable.swift; sourceTree = "<group>"; };
 		88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwDyu.release.xcconfig"; path = "Target Support Files/Pods-AwDyu/Pods-AwDyu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +79,15 @@
 				88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		861E375A24B71FE800152639 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				86A19FE624B4A91200032CEE /* DetailViewController.swift */,
+				868F068024B6948600D124A4 /* DetailViewModel.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		8622E72024B541A10044FC1D /* Extensions */ = {
@@ -117,6 +130,8 @@
 			children = (
 				8622E73024B549DC0044FC1D /* Displayable.swift */,
 				868F067E24B68D7800D124A4 /* ImageLoadable.swift */,
+				86C1571924B72E260043BBCF /* Purchaseable.swift */,
+				86C1571724B72AE30043BBCF /* TrackDetail.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -134,8 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				86A19FFA24B4AC5900032CEE /* Master */,
-				86A19FE624B4A91200032CEE /* DetailViewController.swift */,
-				868F068024B6948600D124A4 /* DetailViewModel.swift */,
+				861E375A24B71FE800152639 /* DetailView */,
 				86A19FE824B4A91200032CEE /* Main.storyboard */,
 			);
 			path = Shared;
@@ -322,12 +336,14 @@
 				86A19FF824B4AC4D00032CEE /* TrackTableViewCell.swift in Sources */,
 				8622E72F24B549AA0044FC1D /* Tracks.swift in Sources */,
 				868F067F24B68D7800D124A4 /* ImageLoadable.swift in Sources */,
+				86C1571824B72AE30043BBCF /* TrackDetail.swift in Sources */,
 				8622E72924B544C20044FC1D /* TrackTableCellViewModel.swift in Sources */,
 				86A19FE124B4A91200032CEE /* AppDelegate.swift in Sources */,
 				86A19FE324B4A91200032CEE /* SceneDelegate.swift in Sources */,
 				8622E72724B5443D0044FC1D /* MasterTableViewModel.swift in Sources */,
 				8622E72D24B549940044FC1D /* Track.swift in Sources */,
 				86A19FE524B4A91200032CEE /* MasterViewController.swift in Sources */,
+				86C1571A24B72E260043BBCF /* Purchaseable.swift in Sources */,
 				86A19FE724B4A91200032CEE /* DetailViewController.swift in Sources */,
 				8622E73124B549DC0044FC1D /* Displayable.swift in Sources */,
 				8622E72224B541B50044FC1D /* UITableViewCellExtensions.swift in Sources */,

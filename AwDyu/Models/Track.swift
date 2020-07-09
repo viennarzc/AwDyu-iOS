@@ -10,7 +10,7 @@ import Foundation
 
 /// Individual Track Item details
 struct Track: Decodable {
-  let trackId: Int?
+  let id: Int?
   private let trackName: String?
   var artworkUrl30: String?
   var artworkUrl60: String?
@@ -20,10 +20,12 @@ struct Track: Decodable {
   var description: String?
   var artistName: String
   var currency: Currency
+  var longDescription: String?
+  var shortDescription: String?
 
   enum CodingKeys: String, CodingKey {
     case trackName
-    case trackId
+    case id = "trackId"
     case artworkUrl30
     case artworkUrl60
     case artworkUrl100
@@ -32,10 +34,26 @@ struct Track: Decodable {
     case description
     case artistName
     case currency
+    case longDescription
+    case shortDescription
   }
 }
 
+//MARK: - Displayable
+
 extension Track: Displayable {
+  var hasPrice: Bool {
+    trackPrice != nil
+  }
+  
+  var priceTextWithCurrency: String? {
+    guard let price = trackPrice else {
+      return nil
+    }
+    
+    return currencySymbol + " " + String(price)
+  }
+  
   var priceText: String {
     guard let price = trackPrice else {
       return "0.00"
@@ -44,6 +62,7 @@ extension Track: Displayable {
     return String(price)
   }
   
+  ///If trackName is Nil, set as 'Untitled Track'
   var name: String {
     guard let name = trackName else {
       return "Untitled Track"
@@ -51,15 +70,39 @@ extension Track: Displayable {
     
     return name
   }
-
+  
+  var currencySymbol: String {
+    switch currency {
+    case .unknown:
+      return ""
+    case .usd:
+      return "$"
+    }
+  }
 
 }
+
+//MARK: - Purchaseable
+
+extension Track: Purchaseable {
+  var canPurchase: Bool {
+    hasPrice
+  }
+  
+  
+}
+
+
+//MARK: - Enum
 
 
 enum Currency: String {
   case usd = "USD"
   case unknown = "unknown"
 }
+
+//MARK: - Decodable
+
 
 extension Currency: Decodable {
   private enum CodingKeys: String, CodingKey {

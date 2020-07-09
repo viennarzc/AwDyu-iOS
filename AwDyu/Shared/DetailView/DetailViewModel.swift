@@ -8,16 +8,11 @@
 
 import Foundation
 
-protocol Detail {
-  var albumArtUrl100: URL? { get set }
-  var description: String? { get set }
-  var artistName: String? { get set }
-  var trackName: String? { get set }
-  var priceText: String? { get set }
-  var genre: String? { get set }
-}
-
-struct DetailViewModel: Detail {
+struct DetailViewModel: TrackDetail {
+  var canPurchase: Bool
+  
+  var shortDescription: String?
+  
   var genre: String?
   
   var artistName: String?
@@ -30,17 +25,42 @@ struct DetailViewModel: Detail {
   
   var description: String?
   
-  
   /// Initialize when presenting from Master View page
   /// - Parameter model: Track model, that contains detail of a track / song
   init(track model: Track) {
     self.albumArtUrl100 = URL(string: model.artworkUrl100 ?? "")
     self.trackName = model.name
-    self.priceText = "\(model.currency.rawValue)  \(model.priceText)"
+    self.priceText = model.priceTextWithCurrency ?? (model.currency.rawValue + model.priceText)
     self.genre = model.primaryGenreName
     self.description = model.description
     self.artistName = model.artistName
+    self.canPurchase = model.canPurchase
     
+    //set No Description as default
+    var contatDescription: String = ""
+    
+    //append if long description exist
+    if let long = model.longDescription {
+      contatDescription.append(long)
+    }
+    
+    //append if short description exist
+    if let short = model.shortDescription {
+      contatDescription.append("\n")
+      contatDescription.append(short)
+    }
+    
+    //appedn if description exist
+    if let desc = model.description {
+      contatDescription.append("\n")
+      contatDescription.append(desc)
+    }
+    
+    if contatDescription.isEmpty {
+      contatDescription = "No Description."
+    }
+    
+    self.description = contatDescription.clean()
   }
   
   /// Initialize from state restoration
@@ -57,7 +77,8 @@ struct DetailViewModel: Detail {
     genre: String?,
     artist: String?,
     price: String?,
-    albumUrlString: String?) {
+    albumUrlString: String?,
+    canPurchase: Bool) {
     
     self.artistName = artist
     self.genre = genre
@@ -65,7 +86,16 @@ struct DetailViewModel: Detail {
     self.albumArtUrl100 = URL(string: albumUrlString ?? "")
     self.trackName = trackName
     self.description = description
-    
+    self.canPurchase = canPurchase
   }
   
+}
+
+private extension String {
+  /// Remove html tags
+   /// - Parameter string: texts to be clean
+   /// - Returns: returns cleaned texts or nik
+   func clean() -> String {
+    return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+   }
 }

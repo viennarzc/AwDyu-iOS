@@ -19,9 +19,9 @@ class DetailViewController: UIViewController {
     static let albumArtUrl = "AlbumArtURL"
     static let description = "Description"
     static let price = "Price"
+    static let longDescription = "Description"
+    static let canPurchase = "CanPurchase"
   }
-
-
 
   //MARK: - IBOutlets
 
@@ -39,45 +39,32 @@ class DetailViewController: UIViewController {
 
   var viewModel: DetailViewModel? {
     didSet {
-
       downloadAlbumArt()
     }
   }
 
   //MARK: - LifeCycle
 
-  // Used by our scene delegate to return an instance of this class from our storyboard.
-  static func loadFromStoryboard() -> DetailViewController? {
-    let storyboard = UIStoryboard(name: "Main", bundle: .main)
-    return storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-    configureView()
-
+    
+    buyButton.setTitle("Not Purchaseable", for: .disabled)
     descriptionTextView.isEditable = false
     descriptionTextView.isScrollEnabled = true
-
-//    load()
+    
+    configureView()
   }
 
 
   //MARK: - Methods
 
-  func load() {
-    guard let trackName = trackName else { return }
-
-    self.trackNameLabel.text = trackName
-
-  }
-
   func configureView() {
     // Update the user interface.
     guard let vm = viewModel else { return }
-
-    if let text = clean(string: vm.description) {
+    
+  
+    if let text = vm.description {
       descriptionTextView.text = text
     }
 
@@ -91,21 +78,17 @@ class DetailViewController: UIViewController {
 
     if let trackName = vm.trackName {
       trackNameLabel.text = trackName
+      navigationItem.title = trackName
     }
 
     if let price = vm.priceText {
       buyButton.setTitle(price, for: .normal)
     }
 
-  }
 
-  /// Remove html tags
-  /// - Parameter string: texts to be clean
-  /// - Returns: returns cleaned texts or nik
-  func clean(string: String?) -> String? {
-    guard let string = string else { return nil }
+    buyButton.isEnabled = vm.canPurchase
+    buyButton.backgroundColor = vm.canPurchase ? .systemIndigo : .systemGray2
 
-    return string.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
   }
 
   /// Presents Purchase alert
@@ -134,14 +117,16 @@ class DetailViewController: UIViewController {
     let description = activityUserInfo[kEncodeKey.description] as? String
     let price = activityUserInfo[kEncodeKey.price] as? String
     let artist = activityUserInfo[kEncodeKey.artistName] as? String
-    
+    let canPurchase = activityUserInfo[kEncodeKey.canPurchase] as! Bool
+
     self.viewModel = DetailViewModel(
       trackName: trackName,
       description: description,
       genre: genre,
       artist: artist,
       price: price,
-      albumUrlString: albumArtUrlString)
+      albumUrlString: albumArtUrlString,
+      canPurchase: canPurchase)
 
   }
 
@@ -182,6 +167,8 @@ class DetailViewController: UIViewController {
     if let description = vm.description {
       coder.encode(description, forKey: kEncodeKey.description)
     }
+    
+    coder.encode(vm.canPurchase, forKey: kEncodeKey.canPurchase)
 
   }
 
@@ -216,7 +203,7 @@ extension DetailViewController {
     return activityType
   }
 
-  
+
   /// Add information as activity that will be save for state restoration
   /// - Parameter activity: User Activity
   func applyDetailActivity(_ activity: NSUserActivity) {
