@@ -11,11 +11,30 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+  
     return true
+  }
+  
+  func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
+        // Save the current app version to the archive.
+    coder.encode(1.0, forKey: "MyAppVersion")
+
+    // Always save state information.
+    return true
+  }
+
+  func application(_ application: UIApplication,
+    shouldRestoreApplicationState coder: NSCoder) -> Bool {
+    // Restore the state only if the app version matches.
+    let version = coder.decodeFloat(forKey: "MyAppVersion")
+    if version == 1.0 {
+      return true
+    }
+
+    // Do not restore from old data.
+    return false
   }
 
   // MARK: UISceneSession Lifecycle

@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
   var window: UIWindow?
 
-
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -23,6 +22,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
     navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
     navigationController.topViewController?.navigationItem.leftItemsSupplementBackButton = true
     splitViewController.delegate = self
+
+    // Do we have an activity to restore?
+    if let userActivity = connectionOptions.userActivities.first ?? session.stateRestorationActivity {
+      // Setup the detail view controller with it's restoration activity.
+      if !configure(window: window, with: userActivity) {
+        print("Failed to restore DetailViewController from \(userActivity)")
+      }
+    }
+  }
+
+
+  func configure(window: UIWindow?, with activity: NSUserActivity) -> Bool {
+
+    if let splitVC = window?.rootViewController as? UISplitViewController,
+      let navigationController = splitVC.viewControllers.last as? UINavigationController,
+      let detailViewController = navigationController.viewControllers.last as? DetailViewController {
+
+      detailViewController.restoreUserActivityState(activity)
+      return true
+    }
+
+    return false
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
@@ -40,6 +61,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
   func sceneWillResignActive(_ scene: UIScene) {
     // Called when the scene will move from an active state to an inactive state.
     // This may occur due to temporary interruptions (ex. an incoming phone call).
+    if let splitVC = window!.rootViewController as? UISplitViewController,
+      let navController = splitVC.viewControllers.first as? UINavigationController,
+      let navVC = navController.viewControllers.last as? UINavigationController {
+      if let detailViewController = navVC.viewControllers.last as? DetailViewController {
+        // Fetch the user activity from our detail view controller so restore for later.
+        scene.userActivity = detailViewController.detailActivity
+      }
+    }
   }
 
   func sceneWillEnterForeground(_ scene: UIScene) {
@@ -53,16 +82,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
     // to restore the scene back to its current state.
   }
 
+  // MARK: - State Restoration
+
+  // This is the NSUserActivity that will be used to restore state when the scene reconnects.
+  func stateRestorationActivity(for scene: UIScene) -> NSUserActivity? {
+
+    return scene.userActivity
+  }
+
   // MARK: - Split view
 
-  func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-      guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-      guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-      if topAsDetailController.viewModel == nil {
-          // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-          return true
-      }
-      return false
+  func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+    guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+    guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
+    if topAsDetailController.viewModel == nil {
+      // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+      return true
+    }
+    return false
   }
 
 }

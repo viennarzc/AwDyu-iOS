@@ -10,6 +10,19 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+  //MARK: - Restore State Encode Keys
+
+  struct kEncodeKey {
+    static let artistName = "ArtistName"
+    static let trackName = "TrackName"
+    static let genre = "Genre"
+    static let albumArtUrl = "AlbumArtURL"
+    static let description = "Description"
+    static let price = "Price"
+  }
+
+
+
   //MARK: - IBOutlets
 
   @IBOutlet weak var albumArtHeaderImageView: UIImageView!
@@ -22,6 +35,7 @@ class DetailViewController: UIViewController {
 
   //MARK: - Property
 
+  private var trackName: String?
 
   var viewModel: DetailViewModel? {
     didSet {
@@ -32,6 +46,12 @@ class DetailViewController: UIViewController {
 
   //MARK: - LifeCycle
 
+  // Used by our scene delegate to return an instance of this class from our storyboard.
+  static func loadFromStoryboard() -> DetailViewController? {
+    let storyboard = UIStoryboard(name: "Main", bundle: .main)
+    return storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
@@ -39,10 +59,19 @@ class DetailViewController: UIViewController {
 
     descriptionTextView.isEditable = false
     descriptionTextView.isScrollEnabled = true
+
+//    load()
   }
 
 
   //MARK: - Methods
+
+  func load() {
+    guard let trackName = trackName else { return }
+
+    self.trackNameLabel.text = trackName
+
+  }
 
   func configureView() {
     // Update the user interface.
@@ -89,7 +118,7 @@ class DetailViewController: UIViewController {
       title: "Track Purchase",
       message: "Awesome! Thank you for purchasing \(trackName) for \(price)",
       preferredStyle: .alert)
-    
+
     let dismissAction = UIAlertAction(title: "Nice!", style: .default) { (_) in
       alertVC.dismiss(animated: true, completion: nil)
     }
@@ -98,12 +127,164 @@ class DetailViewController: UIViewController {
     present(alertVC, animated: true, completion: nil)
   }
 
+  func restoreItemInterface(_ activityUserInfo: [AnyHashable: Any]) {
+    let trackName = activityUserInfo[kEncodeKey.trackName] as? String
+    let albumArtUrlString = activityUserInfo[kEncodeKey.albumArtUrl] as? String
+    let genre = activityUserInfo[kEncodeKey.genre] as? String
+    let description = activityUserInfo[kEncodeKey.description] as? String
+    let price = activityUserInfo[kEncodeKey.price] as? String
+    let artist = activityUserInfo[kEncodeKey.artistName] as? String
+    
+    self.viewModel = DetailViewModel(
+      trackName: trackName,
+      description: description,
+      genre: genre,
+      artist: artist,
+      price: price,
+      albumUrlString: albumArtUrlString)
+
+  }
+
   //MARK: - Actions
 
   @IBAction func didTapBuyButton(_ sender: Any) {
     presentPurchaseAlert()
   }
 
+
+  //MARK: - State Restoration
+
+  override func encodeRestorableState(with coder: NSCoder) {
+    super.encodeRestorableState(with: coder)
+
+    guard let vm = viewModel else { return }
+
+    if let trackName = vm.trackName {
+      coder.encode(trackName, forKey: kEncodeKey.trackName)
+    }
+
+    if let url = vm.albumArtUrl100 {
+      coder.encode(url.absoluteString, forKey: kEncodeKey.albumArtUrl)
+    }
+
+    if let artist = vm.artistName {
+      coder.encode(artist, forKey: kEncodeKey.artistName)
+    }
+
+    if let genre = vm.genre {
+      coder.encode(genre, forKey: kEncodeKey.genre)
+    }
+
+    if let price = vm.priceText {
+      coder.encode(price, forKey: kEncodeKey.price)
+    }
+
+    if let description = vm.description {
+      coder.encode(description, forKey: kEncodeKey.description)
+    }
+
+  }
+
+  override func decodeRestorableState(with coder: NSCoder) {
+    super.decodeRestorableState(with: coder)
+
+    if let trackName = coder.decodeObject(forKey: kEncodeKey.trackName) as? String {
+      self.trackNameLabel.text = trackName
+    }
+
+  }
+
+}
+
+extension DetailViewController {
+  //MARK: - NSUser Activity
+
+  /** Create the user activity type.
+         Note: The activityType string loaded below must be included in your Info.plist file under the `NSUserActivityTypes` array.
+             More info: https://developer.apple.com/documentation/foundation/nsuseractivity
+     */
+  class var activityType: String {
+    let activityType = ""
+
+    // Load our activity type from our Info.plist.
+    if let activityTypes = Bundle.main.infoDictionary?["NSUserActivityTypes"] {
+      if let activityArray = activityTypes as? [String] {
+        return activityArray[0]
+      }
+    }
+
+    return activityType
+  }
+
+  
+  /// Add information as activity that will be save for state restoration
+  /// - Parameter activity: User Activity
+  func applyDetailActivity(_ activity: NSUserActivity) {
+
+    guard let vm = viewModel else { return }
+
+    if let name = vm.trackName {
+      let trackName: [String: String] = [kEncodeKey.trackName: name]
+      activity.addUserInfoEntries(from: trackName)
+    }
+
+    if let url = vm.albumArtUrl100 {
+      let url: [String: String] = [kEncodeKey.albumArtUrl: url.absoluteString]
+      activity.addUserInfoEntries(from: url)
+    }
+
+    if let artist = vm.artistName {
+      let artist: [String: String] = [kEncodeKey.artistName: artist]
+      activity.addUserInfoEntries(from: artist)
+    }
+
+    if let genre = vm.genre {
+      let genre: [String: String] = [kEncodeKey.genre: genre]
+      activity.addUserInfoEntries(from: genre)
+    }
+
+    if let price = vm.priceText {
+      let price: [String: String] = [kEncodeKey.price: price]
+      activity.addUserInfoEntries(from: price)
+    }
+
+    if let description = vm.description {
+      let description: [String: String] = [kEncodeKey.description: description]
+      activity.addUserInfoEntries(from: description)
+    }
+
+  }
+
+  // Used to construct an NSUserActivity instance for state restoration.
+  var detailActivity: NSUserActivity {
+    let userActivity = NSUserActivity(activityType: DetailViewController.activityType)
+    userActivity.title = "Restore Item"
+    applyDetailActivity(userActivity)
+    return userActivity
+  }
+
+}
+
+// MARK: - UIUserActivityRestoring
+
+extension DetailViewController {
+
+  override func updateUserActivityState(_ activity: NSUserActivity) {
+    super.updateUserActivityState(activity)
+    applyDetailActivity(activity)
+  }
+
+  override func restoreUserActivityState(_ activity: NSUserActivity) {
+    super.restoreUserActivityState(activity)
+
+    // Check if the activity is of our type.
+    if activity.activityType == DetailViewController.activityType {
+      // Get the user activity data.
+      if let activityUserInfo = activity.userInfo {
+        restoreItemInterface(activityUserInfo)
+      }
+    }
+  }
 
 }
 

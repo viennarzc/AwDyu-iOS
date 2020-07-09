@@ -30,6 +30,9 @@ struct DetailViewModel: Detail {
   
   var description: String?
   
+  
+  /// Initialize when presenting from Master View page
+  /// - Parameter model: Track model, that contains detail of a track / song
   init(track model: Track) {
     self.albumArtUrl100 = URL(string: model.artworkUrl100 ?? "")
     self.trackName = model.name
@@ -37,6 +40,31 @@ struct DetailViewModel: Detail {
     self.genre = model.primaryGenreName
     self.description = model.description
     self.artistName = model.artistName
+    
+  }
+  
+  /// Initialize from state restoration
+  /// - Parameters:
+  ///   - trackName: Name of Track / song
+  ///   - description: Description of song
+  ///   - genre: Genre of song
+  ///   - artist: Artist / Singer
+  ///   - price: Price of track
+  ///   - albumUrlString: url string of album art
+  init(
+    trackName: String?,
+    description: String?,
+    genre: String?,
+    artist: String?,
+    price: String?,
+    albumUrlString: String?) {
+    
+    self.artistName = artist
+    self.genre = genre
+    self.priceText = price
+    self.albumArtUrl100 = URL(string: albumUrlString ?? "")
+    self.trackName = trackName
+    self.description = description
     
   }
   
