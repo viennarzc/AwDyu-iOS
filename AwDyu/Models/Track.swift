@@ -17,6 +17,9 @@ struct Track: Decodable {
   var artworkUrl100: String?
   var trackPrice: Double?
   var primaryGenreName: String?
+  var description: String?
+  var artistName: String
+  var currency: Currency
 
   enum CodingKeys: String, CodingKey {
     case trackName
@@ -26,6 +29,9 @@ struct Track: Decodable {
     case artworkUrl100
     case trackPrice
     case primaryGenreName
+    case description
+    case artistName
+    case currency
   }
 }
 
@@ -46,5 +52,29 @@ extension Track: Displayable {
     return name
   }
 
+
+}
+
+
+enum Currency: String {
+  case usd = "USD"
+  case unknown = "unknown"
+}
+
+extension Currency: Decodable {
+  private enum CodingKeys: String, CodingKey {
+    case usd = "USD"
+    case unknown
+  }
+
+  enum CodingError: Error {
+    case decoding(String)
+  }
+
+  init(from decoder: Decoder) throws {
+    let container = try decoder.singleValueContainer()
+
+    self = Currency(rawValue: try container.decode(String.self)) ?? .unknown
+  }
 
 }

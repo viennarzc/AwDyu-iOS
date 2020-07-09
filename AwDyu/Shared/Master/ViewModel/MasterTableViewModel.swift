@@ -16,10 +16,16 @@ protocol TrackList {
 struct MasterTableViewModel: TrackList {
   var trackItems: [TrackTableCellViewModel]
   
+  private(set) var selectedTrack: Track?
+  
   init(tracks: Tracks) {
     self.trackItems = tracks.results.map {
       TrackTableCellViewModel(model: $0) }
     
+  }
+  
+  mutating func select(row: Int) {
+    self.selectedTrack = trackItems[row].model
   }
   
 }

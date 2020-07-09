@@ -50,10 +50,15 @@ class MasterViewController: UITableViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {
-      if let indexPath = tableView.indexPathForSelectedRow, let vm = tableViewModel {
-        let object = vm.trackItems[indexPath.row]
+
+      if let _ = tableView.indexPathForSelectedRow,
+        let vm = tableViewModel,
+        let model = vm.selectedTrack {
+
         let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-        controller.detailItem = object.model
+
+        controller.viewModel = DetailViewModel(track: model)
+
         controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         controller.navigationItem.leftItemsSupplementBackButton = true
         detailViewController = controller
@@ -73,6 +78,16 @@ class MasterViewController: UITableViewController {
     return vm.trackItems.count
   }
 
+  override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    tableViewModel?.select(row: indexPath.row)
+
+    return indexPath
+  }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "showDetail", sender: self)
+  }
+
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
     let cell: TrackTableViewCell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.reuseIdentifierString, for: indexPath) as! TrackTableViewCell
@@ -81,11 +96,11 @@ class MasterViewController: UITableViewController {
       cell.trackNameLabel.text = vm.trackItems[indexPath.row].trackName
       cell.priceLabel.text = vm.trackItems[indexPath.row].priceText
       cell.genreLabel.text = vm.trackItems[indexPath.row].genre
-      
+
       if let url = URL(string: vm.trackItems[indexPath.row].artworkUrl) {
         cell.albumArtUrl = url
       }
-      
+
     }
 
     return cell
