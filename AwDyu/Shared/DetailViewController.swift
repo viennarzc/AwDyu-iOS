@@ -59,11 +59,11 @@ class DetailViewController: UIViewController {
     if let genre = vm.genre {
       genreLabel.text = genre
     }
-    
+
     if let trackName = vm.trackName {
       trackNameLabel.text = trackName
     }
-    
+
     if let price = vm.priceText {
       buyButton.setTitle(price, for: .normal)
     }
@@ -79,7 +79,34 @@ class DetailViewController: UIViewController {
     return string.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
   }
 
+  /// Presents Purchase alert
+  private func presentPurchaseAlert() {
+    guard let vm = viewModel,
+      let trackName = vm.trackName,
+      let price = vm.priceText else { return }
+
+    let alertVC = UIAlertController(
+      title: "Track Purchase",
+      message: "Awesome! Thank you for purchasing \(trackName) for \(price)",
+      preferredStyle: .alert)
+    
+    let dismissAction = UIAlertAction(title: "Nice!", style: .default) { (_) in
+      alertVC.dismiss(animated: true, completion: nil)
+    }
+    alertVC.addAction(dismissAction)
+
+    present(alertVC, animated: true, completion: nil)
+  }
+
+  //MARK: - Actions
+
+  @IBAction func didTapBuyButton(_ sender: Any) {
+    presentPurchaseAlert()
+  }
+
+
 }
+
 //MARK: - Image Loadable
 
 
