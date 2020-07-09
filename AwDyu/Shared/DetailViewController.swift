@@ -124,6 +124,7 @@ extension DetailViewController: ImageLoadable {
       DispatchQueue.main.async {
         self.albumArtBackgroundImage.image = image
         self.albumArtHeaderImageView.image = image
+        self.albumArtHeaderImageView.contentMode = .scaleAspectFill
 
       }
     }

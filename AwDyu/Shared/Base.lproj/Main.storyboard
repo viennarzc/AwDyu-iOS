@@ -56,10 +56,12 @@
                                 <blurEffect style="systemMaterial"/>
                             </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3YD-Iw-j0A">
-                                <rect key="frame" x="15" y="118" width="384" height="100"/>
+                                <rect key="frame" x="30" y="118" width="369" height="100"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="adA-ks-mkD">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="adA-ks-mkD">
+                                        <rect key="frame" x="0.0" y="0.5" width="100" height="99"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="adA-ks-mkD" secondAttribute="height" multiplier="1:1" id="aYD-uZ-vBH"/>
                                             <constraint firstAttribute="height" constant="100" id="fwG-Jn-Kje"/>
@@ -72,22 +74,22 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f04-rw-mkF">
-                                        <rect key="frame" x="115" y="19" width="269" height="62.5"/>
+                                        <rect key="frame" x="115" y="19" width="254" height="62.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k52-fZ-O0G">
-                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k52-fZ-O0G">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcd-iz-Z1F">
-                                                <rect key="frame" x="0.0" y="25.5" width="33" height="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcd-iz-Z1F">
+                                                <rect key="frame" x="0.0" y="25.5" width="48.5" height="16"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTG-OP-5eG">
-                                                <rect key="frame" x="0.0" y="46.5" width="33" height="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTG-OP-5eG">
+                                                <rect key="frame" x="0.0" y="46.5" width="48.5" height="16"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -97,13 +99,13 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No Track Description" translatesAutoresizingMaskIntoConstraints="NO" id="e4E-Hl-uIC">
-                                <rect key="frame" x="20" y="233" width="374" height="539"/>
+                                <rect key="frame" x="35" y="233" width="344" height="509"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkO-Og-cYx">
-                                <rect key="frame" x="15" y="802" width="384" height="60"/>
+                                <rect key="frame" x="15" y="772" width="384" height="60"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="vXG-9V-0Ii"/>
@@ -124,21 +126,21 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="i7U-sr-mbC" firstAttribute="trailing" secondItem="VUw-jc-0yf" secondAttribute="trailing" id="0aW-JI-OAr"/>
-                            <constraint firstItem="3YD-Iw-j0A" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="15" id="1Hg-O8-d5l"/>
+                            <constraint firstItem="i7U-sr-mbC" firstAttribute="trailing" secondItem="svH-Pt-448" secondAttribute="trailing" id="0aW-JI-OAr"/>
+                            <constraint firstItem="3YD-Iw-j0A" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="30" id="1Hg-O8-d5l"/>
                             <constraint firstItem="e4E-Hl-uIC" firstAttribute="top" secondItem="3YD-Iw-j0A" secondAttribute="bottom" constant="15" id="8mt-vc-cDB"/>
-                            <constraint firstItem="3BU-bc-Wvm" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" id="96f-Tt-qdU"/>
+                            <constraint firstItem="3BU-bc-Wvm" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="96f-Tt-qdU"/>
                             <constraint firstItem="WkO-Og-cYx" firstAttribute="top" secondItem="e4E-Hl-uIC" secondAttribute="bottom" constant="30" id="N2s-1f-oed"/>
-                            <constraint firstItem="WkO-Og-cYx" firstAttribute="top" secondItem="3BU-bc-Wvm" secondAttribute="bottom" constant="-94" id="RAV-dv-tFZ"/>
                             <constraint firstItem="3BU-bc-Wvm" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="WPR-aA-oVH"/>
-                            <constraint firstItem="WkO-Og-cYx" firstAttribute="bottom" secondItem="VUw-jc-0yf" secondAttribute="bottom" id="Zzv-Op-jkO"/>
                             <constraint firstAttribute="bottom" secondItem="i7U-sr-mbC" secondAttribute="bottom" id="aH2-mq-gOq"/>
                             <constraint firstItem="i7U-sr-mbC" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="cDq-uH-RDB"/>
-                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="3BU-bc-Wvm" secondAttribute="trailing" id="fIj-fD-kcY"/>
-                            <constraint firstItem="i7U-sr-mbC" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" id="lc3-7O-1ob"/>
+                            <constraint firstAttribute="trailing" secondItem="3BU-bc-Wvm" secondAttribute="trailing" id="fIj-fD-kcY"/>
+                            <constraint firstItem="i7U-sr-mbC" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="lc3-7O-1ob"/>
                             <constraint firstItem="e4E-Hl-uIC" firstAttribute="centerX" secondItem="WkO-Og-cYx" secondAttribute="centerX" id="mUy-9j-O2h"/>
-                            <constraint firstItem="e4E-Hl-uIC" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="pFG-8D-3NM"/>
+                            <constraint firstAttribute="bottom" secondItem="3BU-bc-Wvm" secondAttribute="bottom" id="oqd-1v-hEc"/>
+                            <constraint firstItem="e4E-Hl-uIC" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="15" id="pFG-8D-3NM"/>
                             <constraint firstItem="WkO-Og-cYx" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="15" id="qPd-8S-N3c"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="WkO-Og-cYx" secondAttribute="bottom" constant="30" id="tQ6-xe-czB"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="WkO-Og-cYx" secondAttribute="trailing" constant="15" id="unA-D4-FpO"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="3YD-Iw-j0A" secondAttribute="trailing" constant="15" id="vBF-xc-ANb"/>
                             <constraint firstItem="3YD-Iw-j0A" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="30" id="wRi-AG-ljZ"/>
@@ -268,4 +270,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="CQr-I2-y2W"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="music.note" catalog="system" width="97" height="128"/>
+    </resources>
 </document>
