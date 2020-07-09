@@ -21,7 +21,8 @@ class MasterViewController: UITableViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
-    tableView.backgroundColor = .white
+    tableView.backgroundColor = .systemGray6
+    tableView.separatorStyle = .none
     tableView.register(LastVisitSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
     
     tableView.register(TrackTableViewCell.nib,
@@ -77,6 +78,9 @@ class MasterViewController: UITableViewController {
     return 1
   }
   
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
+  }
   
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     return tableView.dequeueReusableHeaderFooterView(withIdentifier: "Header")
@@ -119,6 +123,7 @@ class MasterViewController: UITableViewController {
       cell.trackNameLabel.text = vm.trackItems[indexPath.row].trackName
       cell.priceLabel.text = vm.trackItems[indexPath.row].priceText
       cell.genreLabel.text = vm.trackItems[indexPath.row].genre
+      cell.backgroundColor = .clear
 
       if let url = URL(string: vm.trackItems[indexPath.row].artworkUrl) {
         cell.albumArtUrl = url

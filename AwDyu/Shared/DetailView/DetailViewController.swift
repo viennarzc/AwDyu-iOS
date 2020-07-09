@@ -32,7 +32,8 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var trackNameLabel: UILabel!
   @IBOutlet weak var artistNameLabel: UILabel!
   @IBOutlet weak var genreLabel: UILabel!
-
+  @IBOutlet weak var trackContainer: UIView!
+  
   //MARK: - Property
 
   private var trackName: String?
@@ -48,22 +49,43 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-    
+
     buyButton.setTitle("Not Purchaseable", for: .disabled)
     descriptionTextView.isEditable = false
     descriptionTextView.isScrollEnabled = true
-    
+
     configureView()
+    addShadow(to: trackContainer)
+
+  }
+
+  func addShadow(to view: UIView) {
+    let shadows = UIView()
+    shadows.frame = view.frame
+    shadows.clipsToBounds = false
+    view.addSubview(shadows)
+
+    let shadowPath0 = UIBezierPath(roundedRect: shadows.bounds, cornerRadius: 8)
+
+    view.layer.shadowPath = shadowPath0.cgPath
+    view.layer.shadowColor = UIColor(red: 0.259, green: 0.247, blue: 0.71, alpha: 0.15).cgColor
+    view.layer.shadowOpacity = 1
+    view.layer.shadowRadius = 15
+    view.layer.shouldRasterize = true
+    view.layer.shadowOffset = CGSize(width: 0, height: 4)
+    view.layer.bounds = shadows.bounds
+    view.layer.position = shadows.center
   }
 
 
   //MARK: - Methods
 
   func configureView() {
+
     // Update the user interface.
     guard let vm = viewModel else { return }
-    
-  
+
+
     if let text = vm.description {
       descriptionTextView.text = text
     }
@@ -167,7 +189,7 @@ class DetailViewController: UIViewController {
     if let description = vm.description {
       coder.encode(description, forKey: kEncodeKey.description)
     }
-    
+
     coder.encode(vm.canPurchase, forKey: kEncodeKey.canPurchase)
 
   }

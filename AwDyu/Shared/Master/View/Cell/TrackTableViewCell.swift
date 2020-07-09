@@ -15,6 +15,7 @@ class TrackTableViewCell: UITableViewCell {
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var genreLabel: UILabel!
   @IBOutlet weak var trackNameLabel: UILabel!
+  @IBOutlet weak var container: UIView!
 
   //MARK: - Properties
 
@@ -39,8 +40,9 @@ class TrackTableViewCell: UITableViewCell {
     artworkImageView.contentMode = .center
   }
 
-  //MARK: - Methods
 
+  //MARK: - Methods
+  
   /// Download Album art
   private func downloadAlbumArt() {
     if let url = albumArtUrl {
@@ -61,6 +63,7 @@ class TrackTableViewCell: UITableViewCell {
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+
     // Configure the view for the selected state
   }
 
