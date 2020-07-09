@@ -16,6 +16,10 @@ protocol TrackList {
 struct MasterTableViewModel: TrackList {
   var trackItems: [TrackTableCellViewModel]
   
+  var shouldShowLastVisitHeader: Bool {
+    UserDefaultsManager.shared.hasPreviousDateVisited
+  }
+  
   private(set) var selectedTrack: Track?
   
   init(tracks: Tracks) {

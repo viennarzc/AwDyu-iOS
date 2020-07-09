@@ -69,6 +69,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
         scene.userActivity = detailViewController.detailActivity
       }
     }
+    
+    UserDefaultsManager.shared.saveDateAsLastVisit()
   }
 
   func sceneWillEnterForeground(_ scene: UIScene) {

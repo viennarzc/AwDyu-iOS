@@ -29,6 +29,10 @@
 		86A19FF924B4AC4D00032CEE /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86A19FF724B4AC4D00032CEE /* TrackTableViewCell.xib */; };
 		86C1571824B72AE30043BBCF /* TrackDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1571724B72AE30043BBCF /* TrackDetail.swift */; };
 		86C1571A24B72E260043BBCF /* Purchaseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1571924B72E260043BBCF /* Purchaseable.swift */; };
+		86C1571D24B731340043BBCF /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1571C24B731340043BBCF /* UserDefaultsManager.swift */; };
+		86C1572124B733060043BBCF /* LastVisitSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C1572024B733060043BBCF /* LastVisitSectionHeader.xib */; };
+		86C1572324B737A50043BBCF /* LastVisitSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572224B737A50043BBCF /* LastVisitSectionHeaderView.swift */; };
+		86C1572624B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572524B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,10 @@
 		86A19FF724B4AC4D00032CEE /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
 		86C1571724B72AE30043BBCF /* TrackDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetail.swift; sourceTree = "<group>"; };
 		86C1571924B72E260043BBCF /* Purchaseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchaseable.swift; sourceTree = "<group>"; };
+		86C1571C24B731340043BBCF /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		86C1572024B733060043BBCF /* LastVisitSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastVisitSectionHeader.xib; sourceTree = "<group>"; };
+		86C1572224B737A50043BBCF /* LastVisitSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitSectionHeaderView.swift; sourceTree = "<group>"; };
+		86C1572524B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitSectionHeaderViewModel.swift; sourceTree = "<group>"; };
 		88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwDyu.release.xcconfig"; path = "Target Support Files/Pods-AwDyu/Pods-AwDyu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +186,7 @@
 			children = (
 				86A19FE024B4A91200032CEE /* AppDelegate.swift */,
 				86A19FE224B4A91200032CEE /* SceneDelegate.swift */,
+				86C1571B24B731260043BBCF /* Managers */,
 				8626741C24B5509C00F1A4FC /* Networking */,
 				8622E72B24B549780044FC1D /* Protocols */,
 				8622E72A24B549720044FC1D /* Models */,
@@ -193,6 +202,7 @@
 		86A19FFA24B4AC5900032CEE /* Master */ = {
 			isa = PBXGroup;
 			children = (
+				86C1572424B7581C0043BBCF /* LastVisitSectionHeader */,
 				8622E72524B5441D0044FC1D /* ViewModel */,
 				8622E72424B544120044FC1D /* View */,
 			);
@@ -206,6 +216,24 @@
 				86A19FF724B4AC4D00032CEE /* TrackTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		86C1571B24B731260043BBCF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				86C1571C24B731340043BBCF /* UserDefaultsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		86C1572424B7581C0043BBCF /* LastVisitSectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				86C1572224B737A50043BBCF /* LastVisitSectionHeaderView.swift */,
+				86C1572524B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift */,
+				86C1572024B733060043BBCF /* LastVisitSectionHeader.xib */,
+			);
+			path = LastVisitSectionHeader;
 			sourceTree = "<group>";
 		};
 		CC438C3D00905DA5458E4A42 /* Frameworks */ = {
@@ -277,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86A19FEF24B4A91400032CEE /* LaunchScreen.storyboard in Resources */,
+				86C1572124B733060043BBCF /* LastVisitSectionHeader.xib in Resources */,
 				86A19FEC24B4A91400032CEE /* Assets.xcassets in Resources */,
 				86A19FEA24B4A91200032CEE /* Main.storyboard in Resources */,
 				86A19FF924B4AC4D00032CEE /* TrackTableViewCell.xib in Resources */,
@@ -337,6 +366,7 @@
 				8622E72F24B549AA0044FC1D /* Tracks.swift in Sources */,
 				868F067F24B68D7800D124A4 /* ImageLoadable.swift in Sources */,
 				86C1571824B72AE30043BBCF /* TrackDetail.swift in Sources */,
+				86C1572624B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift in Sources */,
 				8622E72924B544C20044FC1D /* TrackTableCellViewModel.swift in Sources */,
 				86A19FE124B4A91200032CEE /* AppDelegate.swift in Sources */,
 				86A19FE324B4A91200032CEE /* SceneDelegate.swift in Sources */,
@@ -344,8 +374,10 @@
 				8622E72D24B549940044FC1D /* Track.swift in Sources */,
 				86A19FE524B4A91200032CEE /* MasterViewController.swift in Sources */,
 				86C1571A24B72E260043BBCF /* Purchaseable.swift in Sources */,
+				86C1572324B737A50043BBCF /* LastVisitSectionHeaderView.swift in Sources */,
 				86A19FE724B4A91200032CEE /* DetailViewController.swift in Sources */,
 				8622E73124B549DC0044FC1D /* Displayable.swift in Sources */,
+				86C1571D24B731340043BBCF /* UserDefaultsManager.swift in Sources */,
 				8622E72224B541B50044FC1D /* UITableViewCellExtensions.swift in Sources */,
 				868F068124B6948600D124A4 /* DetailViewModel.swift in Sources */,
 				868F067C24B5FDC200D124A4 /* ImageLoader.swift in Sources */,

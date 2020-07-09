@@ -20,6 +20,10 @@ class MasterViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    
+    tableView.backgroundColor = .white
+    tableView.register(LastVisitSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
+    
     tableView.register(TrackTableViewCell.nib,
       forCellReuseIdentifier: TrackTableViewCell.reuseIdentifierString)
 
@@ -48,6 +52,7 @@ class MasterViewController: UITableViewController {
 
   // MARK: - Segues
 
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {
 
@@ -70,6 +75,24 @@ class MasterViewController: UITableViewController {
 
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
+  }
+  
+  
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    return tableView.dequeueReusableHeaderFooterView(withIdentifier: "Header")
+  }
+  
+  override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    view.tintColor = .clear
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    guard let vm = tableViewModel, vm.shouldShowLastVisitHeader else {
+      return 0
+    }
+    
+    
+    return 40
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
