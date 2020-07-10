@@ -1,6 +1,10 @@
 # AwDyu-iOS
 A simple app that fetches, Show list of Itunes tracks, and show details page
 
+Supports Dark Mode
+Supports Portrait and Landspace Orientation
+Supports iPhones and iPad Screens
+
 
 ## Design Patterns
 
@@ -29,6 +33,8 @@ So when implementing OOP here, we should limit subclassing to 1 level.
 - Using User Defualts for saving Last visited of app will suffice.
 
 - Using State Preservation and Restoration, can show restore the last detail page, if the app goes to backround state from the details page, and when system might terminate the app to free up the resources it holds, it can restore the page with details in it.
+
+https://developer.apple.com/documentation/uikit/uiviewcontroller/restoring_your_app_s_state 
 
 
 ## Dependencies
