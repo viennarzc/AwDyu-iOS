@@ -6,6 +6,7 @@ A simple SplitView-Master-Detail app that fetches, Show list of iTunes tracks, a
 - Supports iPhones and iPad Screens
 - Supports **Accessibility** - Font size adjustments
 - Minimum iOS: **iOS 13.0**
+- Supports Multi-window on iPad
 
 
 ## Design Patterns
