@@ -105,6 +105,7 @@ class DetailViewController: UIViewController {
     
     let attributes: [NSAttributedString.Key: Any] = [
         .font: font,
+        .foregroundColor: UIColor.label
     ]
     
     attribString.addAttributes(attributes, range: NSRange(location: 0, length: attribString.length))
