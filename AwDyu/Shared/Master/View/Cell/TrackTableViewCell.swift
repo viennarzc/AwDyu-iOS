@@ -42,6 +42,23 @@ class TrackTableViewCell: UITableViewCell {
     artworkImageView.image = UIImage(systemName: "music.note")
     artworkImageView.contentMode = .center
   }
+  
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+    
+    switch self.traitCollection.userInterfaceStyle {
+      
+    case .unspecified:
+      container.dropShadow()
+    case .light:
+      container.dropShadow()
+    case .dark:
+      container.dropShadow(shadowColor: .black)
+    @unknown default:
+      container.dropShadow()
+    }
+    
+  }
 
 
   //MARK: - Methods

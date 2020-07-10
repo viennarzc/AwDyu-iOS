@@ -13,12 +13,12 @@ extension UIView {
   
   /// Add Dropshadow
   /// - Parameter scale: Set if should do rasterization scale
-  func dropShadow(scale: Bool = true) {
+  func dropShadow(scale: Bool = true, shadowColor: UIColor = .systemGray5) {
     layer.masksToBounds = false
-    layer.shadowColor = UIColor.systemGray3.cgColor
-    layer.shadowOpacity = 0.5
+    layer.shadowColor = shadowColor.cgColor
+    layer.shadowOpacity = 0.3
     layer.shadowOffset = .zero
-    layer.shadowRadius = 20
+    layer.shadowRadius = 10
     layer.shouldRasterize = true
     layer.rasterizationScale = scale ? UIScreen.main.scale : 1
   }
