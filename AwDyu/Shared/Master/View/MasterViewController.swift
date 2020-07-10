@@ -9,6 +9,8 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
+  //MARK: - Properties
+
   var detailViewController: DetailViewController? = nil
 
   var tableViewModel: MasterTableViewModel? {
@@ -17,22 +19,45 @@ class MasterViewController: UITableViewController {
     }
   }
 
+  //MARK: - LifeCycle
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    setupTable()
+
+    setupSplitVC()
+
+    fetchTrackList()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+    super.viewWillAppear(animated)
+  }
+
+  //MARK: - Methods
+
+  fileprivate func setupTable() {
     // Do any additional setup after loading the view.
-    
+
     tableView.backgroundColor = .systemGray6
     tableView.separatorStyle = .none
-    
+
     tableView.register(LastVisitSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
     tableView.register(TrackTableViewCell.nib,
       forCellReuseIdentifier: TrackTableViewCell.reuseIdentifierString)
+  }
 
+  fileprivate func setupSplitVC() {
     if let split = splitViewController {
       let controllers = split.viewControllers
       detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? DetailViewController
     }
+  }
 
+  fileprivate func fetchTrackList() {
     NetworkManager.shared.fetchList { (tracks, error) in
       if let error = error {
         print(error.localizedDescription)
@@ -43,16 +68,9 @@ class MasterViewController: UITableViewController {
         self.tableViewModel = MasterTableViewModel(tracks: tracks)
       }
     }
-
-  }
-
-  override func viewWillAppear(_ animated: Bool) {
-    clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-    super.viewWillAppear(animated)
   }
 
   // MARK: - Segues
-
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {
@@ -77,25 +95,25 @@ class MasterViewController: UITableViewController {
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
-  
+
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
   }
-  
+
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     return tableView.dequeueReusableHeaderFooterView(withIdentifier: "Header")
   }
-  
+
   override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     view.tintColor = .clear
   }
-  
+
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     guard let vm = tableViewModel, vm.shouldShowLastVisitHeader else {
       return 0
     }
-    
-    
+
+
     return 40
   }
 
@@ -119,6 +137,8 @@ class MasterViewController: UITableViewController {
 
     let cell: TrackTableViewCell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.reuseIdentifierString, for: indexPath) as! TrackTableViewCell
 
+    // Inject data to table cell
+    
     if let vm = tableViewModel {
       cell.trackNameLabel.text = vm.trackItems[indexPath.row].trackName
       cell.priceLabel.text = vm.trackItems[indexPath.row].priceText

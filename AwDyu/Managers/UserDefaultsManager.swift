@@ -34,6 +34,7 @@ final class UserDefaultsManager {
     return formatter.string(from: date)
   }
   
+  ///Returns Bool if stored a date
   var hasPreviousDateVisited: Bool {
     guard (UserDefaults.standard.object(forKey: UserDefaultsManager.kLastVisitKey) as? Date) != nil else {
       return false

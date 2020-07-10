@@ -16,8 +16,11 @@ extension String {
     return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
   }
 
+  
+  /// Converts String with **HTML** tags to NSMutableAttributed String
+  /// - Returns: NSMutableAttributedString
   func toNSMutableAttributedString() -> NSMutableAttributedString? {
-
+    
     let data = Data(self.utf8)
     let attributedString = try? NSMutableAttributedString(
       data: data,

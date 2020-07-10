@@ -15,8 +15,11 @@ struct TrackTableCellViewModel {
   let trackName: String
   let currencySymbol: String
   
+  ///Model to pass on to the details page
   private(set) var model: Track
   
+  /// Initialization
+  /// - Parameter model: Track detail
   init(model: Track) {
     self.priceText = model.priceText
     self.artworkUrl = model.artworkUrl60 ?? ""
