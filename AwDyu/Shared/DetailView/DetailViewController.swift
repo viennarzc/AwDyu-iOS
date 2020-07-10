@@ -260,6 +260,9 @@ extension DetailViewController {
       activity.addUserInfoEntries(from: description)
     }
     
+    let canPurchase: [String: Bool] = [kEncodeKey.canPurchase: vm.canPurchase]
+    activity.addUserInfoEntries(from: canPurchase)
+    
 
   }
 
