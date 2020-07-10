@@ -55,28 +55,10 @@ class DetailViewController: UIViewController {
     descriptionTextView.isScrollEnabled = true
 
     configureView()
-    addShadow(to: trackContainer)
+
+    trackContainer.dropShadow()
 
   }
-
-  func addShadow(to view: UIView) {
-    let shadows = UIView()
-    shadows.frame = view.frame
-    shadows.clipsToBounds = false
-    view.addSubview(shadows)
-
-    let shadowPath0 = UIBezierPath(roundedRect: shadows.bounds, cornerRadius: 8)
-
-    view.layer.shadowPath = shadowPath0.cgPath
-    view.layer.shadowColor = UIColor(red: 0.259, green: 0.247, blue: 0.71, alpha: 0.15).cgColor
-    view.layer.shadowOpacity = 1
-    view.layer.shadowRadius = 15
-    view.layer.shouldRasterize = true
-    view.layer.shadowOffset = CGSize(width: 0, height: 4)
-    view.layer.bounds = shadows.bounds
-    view.layer.position = shadows.center
-  }
-
 
   //MARK: - Methods
 

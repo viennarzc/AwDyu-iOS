@@ -34,6 +34,7 @@
 		86C1572324B737A50043BBCF /* LastVisitSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572224B737A50043BBCF /* LastVisitSectionHeaderView.swift */; };
 		86C1572624B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572524B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift */; };
 		86C1572824B7EF220043BBCF /* PrimarySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572724B7EF220043BBCF /* PrimarySplitViewController.swift */; };
+		86C1572A24B802AE0043BBCF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572924B802AE0043BBCF /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		86C1572224B737A50043BBCF /* LastVisitSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitSectionHeaderView.swift; sourceTree = "<group>"; };
 		86C1572524B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitSectionHeaderViewModel.swift; sourceTree = "<group>"; };
 		86C1572724B7EF220043BBCF /* PrimarySplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySplitViewController.swift; sourceTree = "<group>"; };
+		86C1572924B802AE0043BBCF /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwDyu.release.xcconfig"; path = "Target Support Files/Pods-AwDyu/Pods-AwDyu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				8622E72124B541B50044FC1D /* UITableViewCellExtensions.swift */,
+				86C1572924B802AE0043BBCF /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C1572A24B802AE0043BBCF /* UIViewExtensions.swift in Sources */,
 				8626741E24B550A900F1A4FC /* NetworkManager.swift in Sources */,
 				86A19FF824B4AC4D00032CEE /* TrackTableViewCell.swift in Sources */,
 				8622E72F24B549AA0044FC1D /* Tracks.swift in Sources */,

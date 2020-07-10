@@ -31,6 +31,8 @@ class TrackTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
+    
+    container.dropShadow()
   }
 
   override func prepareForReuse() {
