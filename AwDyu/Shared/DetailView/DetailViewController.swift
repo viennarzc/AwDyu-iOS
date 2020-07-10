@@ -40,7 +40,7 @@ class DetailViewController: UIViewController {
 
   var viewModel: DetailViewModel? {
     didSet {
-      downloadAlbumArt()
+      
     }
   }
 
@@ -55,7 +55,7 @@ class DetailViewController: UIViewController {
     descriptionTextView.isScrollEnabled = true
 
     configureView()
-
+    downloadAlbumArt()
     trackContainer.dropShadow()
 
   }
@@ -66,6 +66,11 @@ class DetailViewController: UIViewController {
 
     // Update the user interface.
     guard let vm = viewModel else { return }
+    buyButton.isHidden = false
+    
+    if let desc = vm.description {
+      descriptionTextView.text = desc.clean()
+    }
     
     if let mutableAttribtedStr = vm.attributed {
       descriptionTextView.attributedText = configure(attributed: mutableAttribtedStr)
@@ -132,7 +137,7 @@ class DetailViewController: UIViewController {
     let description = activityUserInfo[kEncodeKey.description] as? String
     let price = activityUserInfo[kEncodeKey.price] as? String
     let artist = activityUserInfo[kEncodeKey.artistName] as? String
-    let canPurchase = activityUserInfo[kEncodeKey.canPurchase] as! Bool
+    let canPurchase = activityUserInfo[kEncodeKey.canPurchase] as? Bool
 
     self.viewModel = DetailViewModel(
       trackName: trackName,
@@ -141,7 +146,7 @@ class DetailViewController: UIViewController {
       artist: artist,
       price: price,
       albumUrlString: albumArtUrlString,
-      canPurchase: canPurchase)
+      canPurchase: canPurchase ?? false)
 
   }
 
@@ -254,6 +259,7 @@ extension DetailViewController {
       let description: [String: String] = [kEncodeKey.description: description]
       activity.addUserInfoEntries(from: description)
     }
+    
 
   }
 

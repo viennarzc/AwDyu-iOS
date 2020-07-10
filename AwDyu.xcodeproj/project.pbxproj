@@ -33,8 +33,8 @@
 		86C1572124B733060043BBCF /* LastVisitSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C1572024B733060043BBCF /* LastVisitSectionHeader.xib */; };
 		86C1572324B737A50043BBCF /* LastVisitSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572224B737A50043BBCF /* LastVisitSectionHeaderView.swift */; };
 		86C1572624B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572524B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift */; };
-		86C1572824B7EF220043BBCF /* PrimarySplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572724B7EF220043BBCF /* PrimarySplitViewController.swift */; };
 		86C1572A24B802AE0043BBCF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572924B802AE0043BBCF /* UIViewExtensions.swift */; };
+		86C1572C24B80EBF0043BBCF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1572B24B80EBF0043BBCF /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,8 +67,8 @@
 		86C1572024B733060043BBCF /* LastVisitSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastVisitSectionHeader.xib; sourceTree = "<group>"; };
 		86C1572224B737A50043BBCF /* LastVisitSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitSectionHeaderView.swift; sourceTree = "<group>"; };
 		86C1572524B7587D0043BBCF /* LastVisitSectionHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitSectionHeaderViewModel.swift; sourceTree = "<group>"; };
-		86C1572724B7EF220043BBCF /* PrimarySplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimarySplitViewController.swift; sourceTree = "<group>"; };
 		86C1572924B802AE0043BBCF /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		86C1572B24B80EBF0043BBCF /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		88A0EC064C2CE882798AD751 /* Pods-AwDyu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwDyu.release.xcconfig"; path = "Target Support Files/Pods-AwDyu/Pods-AwDyu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				8622E72124B541B50044FC1D /* UITableViewCellExtensions.swift */,
+				86C1572B24B80EBF0043BBCF /* StringExtensions.swift */,
 				86C1572924B802AE0043BBCF /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
@@ -191,7 +192,6 @@
 			children = (
 				86A19FE024B4A91200032CEE /* AppDelegate.swift */,
 				86A19FE224B4A91200032CEE /* SceneDelegate.swift */,
-				86C1572724B7EF220043BBCF /* PrimarySplitViewController.swift */,
 				86C1571B24B731260043BBCF /* Managers */,
 				8626741C24B5509C00F1A4FC /* Networking */,
 				8622E72B24B549780044FC1D /* Protocols */,
@@ -379,11 +379,11 @@
 				86A19FE324B4A91200032CEE /* SceneDelegate.swift in Sources */,
 				8622E72724B5443D0044FC1D /* MasterTableViewModel.swift in Sources */,
 				8622E72D24B549940044FC1D /* Track.swift in Sources */,
+				86C1572C24B80EBF0043BBCF /* StringExtensions.swift in Sources */,
 				86A19FE524B4A91200032CEE /* MasterViewController.swift in Sources */,
 				86C1571A24B72E260043BBCF /* Purchaseable.swift in Sources */,
 				86C1572324B737A50043BBCF /* LastVisitSectionHeaderView.swift in Sources */,
 				86A19FE724B4A91200032CEE /* DetailViewController.swift in Sources */,
-				86C1572824B7EF220043BBCF /* PrimarySplitViewController.swift in Sources */,
 				8622E73124B549DC0044FC1D /* Displayable.swift in Sources */,
 				86C1571D24B731340043BBCF /* UserDefaultsManager.swift in Sources */,
 				8622E72224B541B50044FC1D /* UITableViewCellExtensions.swift in Sources */,

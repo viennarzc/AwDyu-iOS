@@ -63,9 +63,7 @@ struct DetailViewModel: TrackDetail {
       contatDescription = "No Description."
     }
     
-    self.description = contatDescription.clean()
-    
-    
+    self.description = contatDescription
     
   }
   
@@ -93,15 +91,12 @@ struct DetailViewModel: TrackDetail {
     self.trackName = trackName
     self.description = description
     self.canPurchase = canPurchase
+    
+    if let d = description {
+      self.attributed = d.toNSMutableAttributedString()
+    }
+    
   }
   
 }
 
-private extension String {
-  /// Remove html tags
-   /// - Parameter string: texts to be clean
-   /// - Returns: returns cleaned texts or nik
-   func clean() -> String {
-    return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-   }
-}
