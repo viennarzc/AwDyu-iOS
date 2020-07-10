@@ -33,6 +33,7 @@ class TrackTableViewCell: UITableViewCell {
     // Initialization code
     
     container.dropShadow()
+    selectionStyle = .none
   }
 
   override func prepareForReuse() {
@@ -83,7 +84,7 @@ class TrackTableViewCell: UITableViewCell {
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-
+    container.backgroundColor = selected ? .systemIndigo : .white
     // Configure the view for the selected state
   }
 

@@ -23,8 +23,8 @@ class MasterViewController: UITableViewController {
     
     tableView.backgroundColor = .systemGray6
     tableView.separatorStyle = .none
-    tableView.register(LastVisitSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
     
+    tableView.register(LastVisitSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
     tableView.register(TrackTableViewCell.nib,
       forCellReuseIdentifier: TrackTableViewCell.reuseIdentifierString)
 
