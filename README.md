@@ -1,10 +1,11 @@
 # AwDyu-iOS
 A simple SplitView-Master-Detail app that fetches, Show list of iTunes tracks, and show details page
 
-- Supports Dark Mode
+- Supports **Dark Mode**
 - Supports Portrait and Landspace Orientation
 - Supports iPhones and iPad Screens
-- Supports Accessibility - Font size adjustments
+- Supports **Accessibility** - Font size adjustments
+- Minimum iOS: **iOS 13.0**
 
 
 ## Design Patterns
