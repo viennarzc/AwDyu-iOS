@@ -124,6 +124,7 @@ class MasterViewController: UITableViewController {
       cell.priceLabel.text = vm.trackItems[indexPath.row].priceText
       cell.genreLabel.text = vm.trackItems[indexPath.row].genre
       cell.backgroundColor = .clear
+      cell.currencyLabel.text = vm.trackItems[indexPath.row].currencySymbol
 
       if let url = URL(string: vm.trackItems[indexPath.row].artworkUrl) {
         cell.albumArtUrl = url

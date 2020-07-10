@@ -16,7 +16,8 @@ class TrackTableViewCell: UITableViewCell {
   @IBOutlet weak var genreLabel: UILabel!
   @IBOutlet weak var trackNameLabel: UILabel!
   @IBOutlet weak var container: UIView!
-
+  @IBOutlet weak var currencyLabel: UILabel!
+  
   //MARK: - Properties
 
   var albumArtUrl: URL? {
