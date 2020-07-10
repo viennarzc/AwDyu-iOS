@@ -156,51 +156,6 @@ class DetailViewController: UIViewController {
     presentPurchaseAlert()
   }
 
-
-  //MARK: - State Restoration
-
-  override func encodeRestorableState(with coder: NSCoder) {
-    super.encodeRestorableState(with: coder)
-
-    guard let vm = viewModel else { return }
-
-    if let trackName = vm.trackName {
-      coder.encode(trackName, forKey: kEncodeKey.trackName)
-    }
-
-    if let url = vm.albumArtUrl100 {
-      coder.encode(url.absoluteString, forKey: kEncodeKey.albumArtUrl)
-    }
-
-    if let artist = vm.artistName {
-      coder.encode(artist, forKey: kEncodeKey.artistName)
-    }
-
-    if let genre = vm.genre {
-      coder.encode(genre, forKey: kEncodeKey.genre)
-    }
-
-    if let price = vm.priceText {
-      coder.encode(price, forKey: kEncodeKey.price)
-    }
-
-    if let description = vm.description {
-      coder.encode(description, forKey: kEncodeKey.description)
-    }
-
-    coder.encode(vm.canPurchase, forKey: kEncodeKey.canPurchase)
-
-  }
-
-  override func decodeRestorableState(with coder: NSCoder) {
-    super.decodeRestorableState(with: coder)
-
-    if let trackName = coder.decodeObject(forKey: kEncodeKey.trackName) as? String {
-      self.trackNameLabel.text = trackName
-    }
-
-  }
-
 }
 
 extension DetailViewController {
