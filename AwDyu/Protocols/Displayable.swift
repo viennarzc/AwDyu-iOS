@@ -18,5 +18,12 @@ protocol Displayable {
   var currencySymbol: String { get }
   ///some items have no price
   var hasPrice: Bool { get }
-  
+  ///converted from string with html tags to nsmutable string
+  var attributedDescription: NSMutableAttributedString? { get }
+  ///converted from string with html tags to nsmutable string
+  var attributedShortDescription: NSMutableAttributedString? { get }
+  ///converted from string with html tags to nsmutable string
+  var attributedLongDescription: NSMutableAttributedString? { get }
+  ///combines description,short, and long
+  var fullAttributedDescription: NSMutableAttributedString? { get }
 }

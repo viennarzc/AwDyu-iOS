@@ -25,6 +25,8 @@ struct DetailViewModel: TrackDetail {
   
   var description: String?
   
+  var attributed: NSMutableAttributedString? = nil
+  
   /// Initialize when presenting from Master View page
   /// - Parameter model: Track model, that contains detail of a track / song
   init(track model: Track) {
@@ -35,6 +37,7 @@ struct DetailViewModel: TrackDetail {
     self.description = model.description
     self.artistName = model.artistName
     self.canPurchase = model.canPurchase
+    self.attributed = model.fullAttributedDescription
     
     //set No Description as default
     var contatDescription: String = ""
@@ -61,6 +64,9 @@ struct DetailViewModel: TrackDetail {
     }
     
     self.description = contatDescription.clean()
+    
+    
+    
   }
   
   /// Initialize from state restoration

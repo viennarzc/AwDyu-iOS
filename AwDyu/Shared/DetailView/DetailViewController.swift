@@ -84,10 +84,9 @@ class DetailViewController: UIViewController {
 
     // Update the user interface.
     guard let vm = viewModel else { return }
-
-
-    if let text = vm.description {
-      descriptionTextView.text = text
+    
+    if let mutableAttribtedStr = vm.attributed {
+      descriptionTextView.attributedText = configure(attributed: mutableAttribtedStr)
     }
 
     if let artist = vm.artistName {
@@ -107,10 +106,22 @@ class DetailViewController: UIViewController {
       buyButton.setTitle(price, for: .normal)
     }
 
-
     buyButton.isEnabled = vm.canPurchase
     buyButton.backgroundColor = vm.canPurchase ? .systemIndigo : .systemGray2
 
+  }
+  
+  private func configure(attributed string: NSMutableAttributedString) -> NSMutableAttributedString {
+    let attribString: NSMutableAttributedString = string
+    
+    let font = UIFont.systemFont(ofSize: 17)
+    
+    let attributes: [NSAttributedString.Key: Any] = [
+        .font: font,
+    ]
+    
+    attribString.addAttributes(attributes, range: NSRange(location: 0, length: attribString.length))
+    return attribString
   }
 
   /// Presents Purchase alert
